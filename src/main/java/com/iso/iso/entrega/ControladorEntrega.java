@@ -19,6 +19,7 @@ public class ControladorEntrega {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public Entrega save(@RequestBody @Valid Entrega entrega) {
+        entrega.setEstadoEntrega(EstadoEntrega.POR_ASIGNAR);
         return servicioEntrega.crear(entrega);
     }
 }
